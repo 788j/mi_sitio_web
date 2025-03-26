@@ -1,4 +1,4 @@
-name: Validar y Desplegar en GitHub Pages
+name: Desplegar en GitHub Pages
 
 on:
   push:
@@ -17,5 +17,16 @@ jobs:
         with:
           file: index.html
 
-      - name: Desplegar en GitHub Pages
+      - name: Subir archivos a GitHub Pages
         uses: actions/upload-pages-artifact@v2
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Desplegar en GitHub Pages
+        uses: actions/deploy-pages@v1
+
