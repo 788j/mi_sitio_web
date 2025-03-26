@@ -1,0 +1,22 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar entorno
+        run: echo "Configuración lista"
+
+      - name: Ejecutar pruebas
+        run: echo "Aquí irían las pruebas automáticas"
